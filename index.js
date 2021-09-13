@@ -141,6 +141,18 @@ console.log(oneNorThree([1, 3]))
 /* 11. Create a function to find the longest string from a given array of strings.
     Pass the array as parameter and return the longest string. */
 
+function longestStr(array) {
+    let longest = ""
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].length > longest.length) {
+            longest = array[i];
+        }
+    }
+    return longest;
+}
+
+console.log(longestStr(["qwe", "asrgasgr", "öRLKGARGÖLJWrg"]))
 
 /* 12. Create a function to find the types of a given angle:
   1. Acute angle â‡’ between 0 and 90 degrees. Return `acute`.
@@ -150,6 +162,7 @@ console.log(oneNorThree([1, 3]))
 
     Pass the angle as a parameter.
 */
+
 
 
 /* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
