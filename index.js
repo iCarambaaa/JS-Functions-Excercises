@@ -38,11 +38,11 @@ check(24, 24)
 
 function removeChar(pos, str) {
     let string = str
-    string = string.substr(pos, 1)
-    return string
+    // string = string.substr(pos, 1)
+    return string.substr(0, pos) + string.substr(pos + 1, string.length)
 }
 
-console.log(removeChar(1, "hello how are you doing?"))
+console.log(removeChar(0, "hello how are you doing?"))
 
 /* 4. Create a function to find and return the largest of three given integers. */
 
