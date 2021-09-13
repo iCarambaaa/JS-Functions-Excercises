@@ -56,33 +56,86 @@ console.log(largestInt(3, 6, 1))
 /* 5. Create a function to check if two numbers are in the range 40-60 or 70-100.
     Return `true` if they do, return `false` if one (or both) don't. */
 
-function rangeCheck(x) {
+function rangeCheck(x, y) {
     let check
-    if ((x > 60 && x < 50) || (x > 100 && x < 70)) {
+    if (((x <= 60 && x >= 50) || (x <= 100 && x >= 70)) && ((y <= 60 && y >= 50) || (y <= 100 && y >= 70))) {
         check = true
+        return check
+    } else {
+        check = false
+        return check
     }
-    return check
 }
 
-console.log(rangeCheck(55, 44))
+console.log(rangeCheck(99, 100))
+
 /* 6. Create a function to create a new string composed of a specified number of copies of a given string.
     Pass the string and the number of copies as parameters. */
 
+function copyStr(str, num) {
+    let newStr = ""
+    let i = 0
+    while (i < num) {
+        newStr = newStr.concat(str)
+        i++
+    }
+    return newStr
+}
+
+console.log(copyStr("helloWorld", 4))
 
 /* 7. Create a function to display the city name if the string begins with "Los" or "New".
     Pass the city name as a parameter. Return `false` if they start with a different string. */
 
+function cityName(name) {
+    if ((name.startsWith("Los")) || (name.startsWith("New"))) {
+        return name
+    } else {
+        return false
+    }
+}
+
+console.log(cityName("New York"))
 
 /* 8. Create a function to calculate and return the sum of all elements from an array with 3 elements.
     Pass the array as a parameter. */
 
+function arraySum(array) {
+    let sum = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    return sum
+}
+
+console.log(arraySum([1, 2, 7]))
 
 /* 9. Create a function to test if an array of lenght 2 contains 1 OR 3.
-    Return `true` is it does, `false` if it doesn't. */
+    Return `true` if it does, `false` if it doesn't. */
 
+function oneOrThree(array) {
+    if ((array.includes(1)) || (array.includes(3))) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(oneOrThree([1, 3]))
 
 /* 10. Create a function to test if an array of lenght 2 DOES NOT contain 1 or 3.
     Return `true` if it doesn't, `false` if it does. */
+
+function oneNorThree(array) {
+    if (!(array.includes(1)) && !(array.includes(3))) {
+        return true
+    } else {
+        return false
+    }
+}
+
+console.log(oneNorThree([1, 3]))
 
 
 /* 11. Create a function to find the longest string from a given array of strings.
