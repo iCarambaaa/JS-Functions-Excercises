@@ -11,8 +11,7 @@ function sum(x, y) {
     return sum
 }
 
-sum(1, 3)
-console.log(sum)
+sum(3, 3)
 
 /* 2. Create a function to check two given integers. Return `true` if one of them is 50 or if their sum is 50. */
 
@@ -152,7 +151,7 @@ function longestStr(array) {
     return longest;
 }
 
-console.log(longestStr(["qwe", "asrgasgr", "öRLKGARGÖLJWrg"]))
+console.log(longestStr(["qwe", "asrgasgr", "öRLKGARGÖLJWrg", "reundaq"]))
 
 /* 12. Create a function to find the types of a given angle:
   1. Acute angle â‡’ between 0 and 90 degrees. Return `acute`.
@@ -162,26 +161,103 @@ console.log(longestStr(["qwe", "asrgasgr", "öRLKGARGÖLJWrg"]))
 
     Pass the angle as a parameter.
 */
+function angle(ang) {
+    let a = ang
+    switch (true) {
+        case ((a > 0) && (a < 90)):
+            return "acute"
+            break;
+        case ((a > 90) && (a < 180)):
+            return "obtuse"
+            break
+        case (a == 90):
+            return "right"
+            break
+        case ((a == 180)):
+            return "straight"
+            break
+        default:
+            return "something not right here"
+    }
+}
+
+console.log(angle(90))
+
+/* 13. Create a function to find and return the index of the greatest element of 
+a given array of integers that you passed as a parameter. */
+
+function greatestElement(array) {
+    let greatest = ""
+    let greatestIndex = ""
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > greatest) {
+            greatest = array[i]
+            greatestIndex = array.indexOf(greatest)
+        } else { }
+    }
+    return greatestIndex
+}
+
+console.log(greatestElement([0, 1, 2, 3, 1, 5, 0, 9, 4, 54]))
 
 
+function sameWithMathMax(array) {
+    let index = array.indexOf(Math.max(...array))
+    return index
+}
 
-/* 13. Create a function to find and return the index of the greatest element of a given array of integers that you passed as a parameter. */
-
+console.log(sameWithMathMax([0, 1, 2, 3, 1, 5, 1, 0, 5, 81, 57])) // -1 BREAKS WHEN EMPTY BETWEEN TWO COMMAS -1
 
 /* 14. Create a function to find and return the largest **even** number from an array of integers that is passed a parameter. */
 
+function largestEven(array) {
+    let evens = array.filter(number => number % 2 == 0)
+    console.log(evens)
+    let largest = Math.max(...evens)
+    return largest
+
+}
+console.log(largestEven([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
 /* 15. Create a function to check from two given integers (passed as parameters) if one is positive and the other is negative.
     Return `true` if that's the case, return `false` if it's not. */
+function posNeg(x, y) {
+    if ((x % 2 == 0 && y % 2 == 1) || (x % 2 !== 0 && y % 2 !== 1)) {
+        return true
+    } else {
+        return false
+    }
+}
 
+console.log(posNeg(2, 3))
 
-/* 16. Create a function to create and return a new string where the first 3 characters and in lower case and the others are in upper case.
+/* 16. Create a function to create and return a new string where the first 3 characters are in lower case and the others are in upper case.
     If the string's length is less than 3, convert the whole string into uppercase. Pass the original string as a parameter. */
 
+function weirdString(str) {
+    let newStr = ""
+    if (str.length < 3) {
+        newStr = str.toUpperCase()
+    } else {
+        newStr = str.substring(0, 3).toLowerCase() + str.substring(2, str.length).toUpperCase()
+    }
+    return newStr
+}
+
+console.log(weirdString("Qwqsdfhsdrfq1wer"))
 
 /* 17. Create a function to calculate the sum of two integers (passed as parameters).
     If the sum is in the 50-80 range, return `65`, otherwise, return `80`. */
 
+let sumOfTwo = function (x, y) {
+    if ((x + y) >= 50 && (x + y) <= 80) {
+        return 65
+    } else {
+        return 80
+    }
+}
+
+console.log(sumOfTwo(49, 32))
 
 /* 18. Create a function to convert a number (passed as a parameter) into a string, basing yourself on this example:
     The number has 3 as a factor â‡’ return `Diego`
@@ -191,6 +267,37 @@ console.log(longestStr(["qwe", "asrgasgr", "öRLKGARGÖLJWrg"]))
     âš ï¸ The factor is an integer which evenly divides a number without leaving a remainder. One number can have more than one factor, in that case you should return both names.
 Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
 
+function justWeird(num) {
+    switch (true) {
+        case (num % 3 == 0 && num % 5 == 0 && num % 7 == 0):
 
-/* 19. Create a function that that takes a phrase as a parameter and returns its acronym.
+        case (num % 3 == 0):
+            return "Diego"
+
+        case (num % 5 == 0):
+            return "Riccardo"
+
+        case (num % 7 == 0):
+            return "Stefano"
+    }
+
+
+}
+
+console.log(justWeird())
+
+
+/* 19. Create a function that takes a phrase as a parameter and returns its acronym.
 Ex. British Broadcasting Corporation returns `BBC` */
+
+function BBC(str) {
+    let words = str.split(" ")
+    console.log(words)
+    let bbc = words.map(word => word[0])
+    console.log(bbc)
+
+    return bbc.join("").toUpperCase()
+}
+
+console.log(BBC("hello there, young fella"))
+console.log(BBC("British Broadcasting Corporation"))
