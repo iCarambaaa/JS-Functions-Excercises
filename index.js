@@ -270,21 +270,31 @@ Ex. 15 has both 3 and 5 has factors: the function will return `DiegoRiccardo` */
 function justWeird(num) {
     switch (true) {
         case (num % 3 == 0 && num % 5 == 0 && num % 7 == 0):
-
+            return "DiegoRiccardoStefano"
+            break
+        case (num % 3 == 0 && num % 5 == 0):
+            return "DiegoRiccardo"
+            break
+        case (num % 3 == 0 && num % 7 == 0):
+            return "DiegoStefano"
+            break
+            case (num % 7 == 0 && num % 5 == 0):
+            return "RiccardStefano"
+            break
         case (num % 3 == 0):
             return "Diego"
-
+            break   
         case (num % 5 == 0):
             return "Riccardo"
-
+            break
         case (num % 7 == 0):
             return "Stefano"
+        default:
+            return num
     }
-
-
 }
 
-console.log(justWeird())
+console.log(justWeird()) // HEHE
 
 
 /* 19. Create a function that takes a phrase as a parameter and returns its acronym.
